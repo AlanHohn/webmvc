@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Spring WebMVC Example</title>
+</head>
+<body>
+<H1>WebMVC Example</h1>
+
+<p>
+Welcome to the Spring WebMVC Example Application. This application provides a REST API for a very
+basic calculator. The following paths are supported for GET requests:
+</p>
+
+<ul>
+<li>/rest/calc/add/{left}/{right}</li>
+<li>/rest/calc/subtract/{left}/{right}</li>
+<li>/rest/calc/multiply/{left}/{right}</li>
+<li>/rest/calc/divide/{left}/{right}</li>
+</ul>
+
+<p>
+All of these paths return a JSON object containing the supplied parameters and the result. For example,
+<a href="/rest/calc/add/2/2">this service call</a> returns:
+</p>
+
+<pre>
+{
+    "operation": "add",
+    "left": 2,
+    "right": 2,
+    "result": 4
+}
+</pre>
+
+In addition, for illustration purposes, the service supports POST requests for:
+<ul>
+<li>/rest/calc2</li>
+</ul>
+
+<p>
+The request body must be a JSON object similar to the above ("result" is of course optional). The
+response will be JSON as above.
+</p>
+
+</body>
+</html>
