@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<display-name>REST API</display-name>
+	<description>Sample Spring WebMVC REST API</description>
 
-  <display-name>REST API</display-name>
-  <description>Sample Spring WebMVC REST API</description>
+	<servlet>
+		<servlet-name>rest</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
 
-  <servlet>
-    <servlet-name>rest</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <load-on-startup>2</load-on-startup>
-  </servlet>
+	<servlet-mapping>
+		<servlet-name>rest</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>rest</servlet-name>
-    <url-pattern>/rest/*</url-pattern>
-  </servlet-mapping>
+	<servlet>
+		<servlet-name>PlacesProxy</servlet-name>
+		<servlet-class>org.anvard.webmvc.server.PlacesProxyServlet</servlet-class>
+	    <init-param>
+    	  <param-name>GoogleApiKey</param-name>
+    	  <param-value>YOUR_KEY_HERE</param-value>
+	    </init-param>
+		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PlacesProxy</servlet-name>
+		<url-pattern>/places</url-pattern>
+	</servlet-mapping>
 
 </web-app>

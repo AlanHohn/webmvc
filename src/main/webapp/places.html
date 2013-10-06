@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="js/jquery-ui.css" />
+    <script src="js/jquery-1.9.1.js"></script>    
+    
+    <script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+            	$.getJSON("/places?location=39.016249,-77.122993&radius=1000&types=food&sensor=false",
+            		function ( data ) {
+            			console.log( data );
+            			for (i = 0; i < data.results.length; i++) {
+            				result = data.results[i];
+            				$('<li>').html(result.name + '<br>' + result.vicinity).appendTo('#contentList');
+            			}
+            		})
+  					.fail(function() {
+    					console.log( "error" );
+					})
+  					.always(function() {
+  						$("#status").text("Complete.");
+	  				});
+            });
+        })(jQuery);
+    </script>
+    <style>
+        body{
+            font-family: courier;
+            font-size: 0.8em;
+        }
+        ul{
+            list-style-type: none;
+            padding: 10px;
+            background-color: #E0EFAF;      
+        }
+        li{
+            margin: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #FFFFFF;      
+            color: #000000;
+        }
+    </style>
+    
+  </head>
+  
+  <body>
+    <h4>Google Places Client</h4>
+    
+        <div id="content">
+                <ul id="contentList">
+                        <li><p id="status">Waiting...</p></li>
+                </ul>
+        </div>
+
+  </body>
+  
+</html>
+  
