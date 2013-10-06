@@ -1,4 +1,4 @@
-Spring WebMVC / Jetty example [![Build Status](https://travis-ci.org/AlanHohn/webmvc.png)](https://travis-ci.org/AlanHohn/webmvc])
+Spring WebMVC / Jetty example [![Build Status](https://travis-ci.org/AlanHohn/webmvc.png)](https://travis-ci.org/AlanHohn/webmvc)
 ======
 
 This is a small Java project initially developed for a class on
