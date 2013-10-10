@@ -14,6 +14,7 @@
 		<jackson.version>1.9.13</jackson.version>
 		<junit.version>4.11</junit.version>
 		<jdk.version>1.7</jdk.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -69,6 +70,14 @@
 
 	<build>
 		<finalName>webmvc</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/webapp</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
