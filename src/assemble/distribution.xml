@@ -1,0 +1,32 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+  <id>jar-with-dependencies</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <baseDirectory></baseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <unpack>true</unpack>
+      <unpackOptions>
+        <excludes>
+          <exclude>META-INF/spring.handlers</exclude>
+          <exclude>META-INF/spring.schemas</exclude>
+        </excludes>
+      </unpackOptions>
+    </dependencySet>
+  </dependencySets>
+  <files>
+    <file>
+      <source>src/assemble/spring.handlers</source>
+      <outputDirectory>/META-INF</outputDirectory>
+      <filtered>false</filtered>
+    </file>
+    <file>
+      <source>src/assemble/spring.schemas</source>
+      <outputDirectory>/META-INF</outputDirectory>
+      <filtered>false</filtered>
+    </file>
+  </files>
+</assembly>
